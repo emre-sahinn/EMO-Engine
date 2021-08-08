@@ -5,6 +5,7 @@
  */
 package engine.renderEngine.core;
 
+import engine.renderEngine.core.helpers.*;
 import engine.renderEngine.graphics.Image;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,7 +13,7 @@ import java.awt.image.BufferStrategy;
 
 /**
  *
- * @author emsahin
+ * @author emsahin, 85530
  */
 public class Drawer {
 
@@ -28,21 +29,29 @@ public class Drawer {
         this.g = st.getDrawGraphics();
     }
 
-    public void drawImage(Image img, int x, int y, int sx, int sy, Boolean direction) {
+    public void drawImage(Image img, Vector2D pos, int width, int height, Boolean direction) {
         //g.drawImage(img.getRawImage(), x, y, null);
-        g.drawImage(img.getRawImage(), x+(direction?0:1)*sx, y, (direction?1:-1)*sx,sy,null);
+        g.drawImage(img.getRawImage(), pos.x+(direction?0:1)*width, pos.y, (direction?1:-1)*width, height,null);
     }
 
-    public void drawString(String str, int x, int y) {
-        g.drawString(str, x, y);
+    public void drawString(String str, Vector2D pos) {
+        g.drawString(str, pos.x, pos.y);
     }
 
-    public void drawRect(int x, int y, int w, int h) {
-        g.drawRect(x, y, w, h);
+    public void drawRect(Vector2D pos, Rectangle rect) {
+        g.drawRect(pos.x, pos.y, rect.width, rect.height);
+    }
+
+    public void fillRect(Vector2D pos, Rectangle rect) {
+        g.fillRect(pos.x, pos.y, rect.width, rect.height);
     }
     
-    public void fillRect(int x, int y, int w, int h) {
-        g.fillRect(x, y, w, h);
+    public void drawOval(Vector2D pos, Oval ov) {
+    	g.drawOval(pos.x, pos.y, ov.width, ov.height);
+    }
+    
+    public void fillOval(Vector2D pos, Oval ov) {
+    	g.fillOval(pos.x, pos.y, ov.width, ov.height);
     }
     
     public void setColor(Color c) {

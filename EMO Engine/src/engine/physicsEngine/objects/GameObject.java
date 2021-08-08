@@ -3,6 +3,7 @@ package engine.physicsEngine.objects;
 import engine.renderEngine.core.Drawer;
 import engine.renderEngine.core.GameManager;
 import engine.renderEngine.core.Window;
+import engine.renderEngine.core.helpers.*;
 import engine.renderEngine.graphics.Image;
 import engine.renderEngine.graphics.SpriteSheet;
 
@@ -20,7 +21,7 @@ public abstract class GameObject {
 	public void render(Window win, Drawer d) {
 		if (doDraw) {
 			if (hasImage) {
-				d.drawImage(image, x, y, sx,sy, direction);
+				d.drawImage(image, new Vector2D(x, y), sx,sy, direction);
 			}else {
 				spritesheet = new SpriteSheet(new Image(spriteSheetPath), sx, sy) ;
 				animate(win, d);

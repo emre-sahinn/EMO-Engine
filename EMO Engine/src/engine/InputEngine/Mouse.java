@@ -5,7 +5,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
-import engine.soundEngine.Debug;
+import engine.debug.Debug;
 
 public class Mouse implements MouseListener, MouseMotionListener {
 

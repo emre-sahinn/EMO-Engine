@@ -3,7 +3,7 @@ package engine.renderEngine.graphics;
 
 import java.awt.image.BufferedImage;
 
-import engine.soundEngine.Debug;
+import engine.debug.Debug;
 
 /**
  *

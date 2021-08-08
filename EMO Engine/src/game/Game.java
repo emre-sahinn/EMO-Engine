@@ -12,9 +12,10 @@ import engine.renderEngine.core.Drawer;
 import engine.renderEngine.core.GameLevel;
 import engine.renderEngine.core.GameManager;
 import engine.renderEngine.core.Window;
+import engine.renderEngine.core.helpers.*;
 import engine.renderEngine.graphics.Image;
 import engine.renderEngine.graphics.SpriteSheet;
-import engine.soundEngine.Debug;
+import engine.debug.*;
 import engine.soundEngine.ResourceLoader;
 
 import java.awt.Color;
@@ -23,7 +24,7 @@ import java.util.Random;
 
 /**
  *
- * @author emsahin
+ * @author emsahin, 85530
  */
 public class Game extends GameLevel {
     //SpriteSheet sp;
@@ -55,18 +56,20 @@ public class Game extends GameLevel {
     @Override
     public void render(Window win, Drawer d, GameManager gm) {
         d.setColor(Color.black);
-        d.drawImage(grass, -120, 0,640,640, true);
-        d.drawImage(grass, 200, 0,640,640, true);
-        d.drawString(coords, 5, 20);
-        d.drawString(win.lastFrames+" FPS", 5-cx, win.getHeight()-5-cy);
+        d.drawImage(grass, new Vector2D(-120, 0), 640, 640, true);
+        d.drawImage(grass, new Vector2D(200, 0), 640, 640, true);
+        
+        d.drawString(coords, new Vector2D(5, 20));
+        d.drawString(win.lastFrames+" FPS", new Vector2D(5-cx, win.getHeight()-5-cy));
         
         if(gameEnd) {
         	ObjectManager.clearObjects();
-        	d.fillRect(0, 0, win.getWidth(), win.getWidth());
+        	d.fillRect(new Vector2D(0, 0), new Rectangle(win.getWidth(), win.getWidth()));
+        	
         	d.setColor(Color.white);
-        	d.drawString("GEBERDÝN..", win.getWidth()/2-50, win.getHeight()/2-100);
-        	d.drawString("SKORUN: "+skor, win.getWidth()/2-50, win.getHeight()/2+100);
-        	d.drawString("Yeniden oynamak için R'ye bas", win.getWidth()/2-100, win.getHeight()/2+200);
+        	d.drawString("GEBERDÝN..", new Vector2D(win.getWidth()/2-50, win.getHeight()/2-100));
+        	d.drawString("SKORUN: "+skor, new Vector2D(win.getWidth()/2-50, win.getHeight()/2+100));
+        	d.drawString("Yeniden oynamak için R'ye bas", new Vector2D(win.getWidth()/2-100, win.getHeight()/2+200));
         }
         
         d.setCameraPos(cx, cy);
@@ -77,7 +80,9 @@ public class Game extends GameLevel {
     @Override
     public void update(Window win, GameManager gm) {
         Input input = win.getInput();
-        Mouse m = win.getMouse();
+        
+        // Mouse m = win.getMouse();
+        // not required
         
         if(input.isKeyPressed(KeyEvent.VK_R)){
             skor = 0;

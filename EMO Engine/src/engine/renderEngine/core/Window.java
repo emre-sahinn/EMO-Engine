@@ -2,7 +2,7 @@ package engine.renderEngine.core;
 
 import engine.InputEngine.Input;
 import engine.InputEngine.Mouse;
-import engine.soundEngine.Debug;
+import engine.debug.Debug;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -101,14 +101,18 @@ public class Window extends Canvas {
             public void run() {
                 double lastTime = System.nanoTime();
                 double delta = 0;
+                
                 final double ns = 1e9 / UPDATE_SPEED;
+                
                 double start = System.currentTimeMillis();
+                
                 int next = 1;
                 while (isRunning()) {   
                     double nowTime = System.nanoTime();
                     double now = (System.currentTimeMillis()-start)/1000;   
                     delta += (nowTime - lastTime) / ns;
                     lastTime = nowTime;
+                    
                     while (delta >= 1) {
                         gm.update();
                         delta--;
