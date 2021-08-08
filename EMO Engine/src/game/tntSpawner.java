@@ -10,7 +10,7 @@ import engine.renderEngine.core.Drawer;
 import engine.renderEngine.core.GameManager;
 import engine.renderEngine.core.Window;
 import engine.renderEngine.graphics.Image;
-import engine.soundEngine.Debug;
+import engine.debug.*;
 import engine.soundEngine.ResourceLoader;
 
 public class tntSpawner extends GameObject {

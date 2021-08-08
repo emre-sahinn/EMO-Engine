@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
-import engine.soundEngine.Debug;
+import engine.debug.*;
 
 /**
  *
@@ -49,7 +49,7 @@ public class Input implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e
-    ) {
+    public void keyTyped(KeyEvent e) {
+    	
     }
 }

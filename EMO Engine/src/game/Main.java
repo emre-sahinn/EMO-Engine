@@ -1,7 +1,6 @@
 package game;
 
 import engine.renderEngine.core.GameManager;
-import java.awt.Color;
 
 import engine.renderEngine.core.Window;
 

@@ -8,7 +8,8 @@ import engine.physicsEngine.objects.GameObject;
 import engine.renderEngine.core.Drawer;
 import engine.renderEngine.core.GameManager;
 import engine.renderEngine.core.Window;
-import engine.soundEngine.Debug;
+import engine.renderEngine.core.helpers.*;
+import engine.debug.*;
 
 public class Character extends GameObject{
 	private int speed = 3;
@@ -68,7 +69,7 @@ public class Character extends GameObject{
 	private int timerRunLimit = 256;
 	@Override
 	public void animate(Window win, Drawer d) {
-		d.drawImage(spritesheet.getSprite(spriteCount, 0), x, y, sx, sy, dir);
+		d.drawImage(spritesheet.getSprite(spriteCount, 0), new Vector2D(x, y), sx, sy, dir);
 		timer+=1;
 		
 		//idle dan run a hizli gecmek icin
